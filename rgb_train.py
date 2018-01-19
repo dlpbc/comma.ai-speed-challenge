@@ -17,8 +17,6 @@ FRAME_WIDTH = 64
 NUM_RGB_CHANNELS = 3
 NUM_FLOW_CHANNELS = 2
 
-NUM_OUTPUT = 1
-
 # hyper parameters 
 epochs = 20
 batch_size = 16 
@@ -28,9 +26,6 @@ TOTAL_NUM_TRAIN_SPLIT_EXAMPLES = get_total_num_examples('data/rgb_train_val_spli
 TOTAL_NUM_VAL_SPLIT_EXAMPLES = get_total_num_examples('data/rgb_train_val_split/validation_data/') 
 
 checkpoint_path = 'rgb_saved_weights/weights.{epoch:02d}-{val_loss:.2f}.hdf5'
-
-# Extra Config
-base_model_is_not_trainable = False
 
 def main(args):
     # train and validation generator 
@@ -50,8 +45,8 @@ def main(args):
     # Build model
     base_model_weights = None if args.weights else 'rgb_imagenet_and_kinetics'
 
-    build_model(NUM_FRAMES_PER_EXAMPLE, FRAME_HEIGHT, FRAME_WIDTH, NUM_RGB_CHANNELS, 
-                base_model_weights, freeze_base=False)
+    model = build_model(NUM_FRAMES_PER_EXAMPLE, FRAME_HEIGHT, FRAME_WIDTH, NUM_RGB_CHANNELS, 
+                        base_model_weights, freeze_base=False)
 
     if args.weights:
         # load saved model weights
