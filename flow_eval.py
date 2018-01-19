@@ -34,13 +34,13 @@ def main(args):
 
     # Build model
     build_model(NUM_FRAMES_PER_EXAMPLE, FRAME_HEIGHT, FRAME_WIDTH, NUM_FLOW_CHANNELS, 
-                None, freeze_base=False)
+                base_model_weights=None, freeze_base=False)
 
     # load saved model weights
     model.load_weights(args.weights_path)
 
     # compile model
-    optimizer = Adam(lr=0.0001, momentum=0.9, nesterov=False)
+    optimizer = Adam(lr=0.0001)
     model.compile(loss='mean_squared_error', optimizer=optimizer)
     print(model.summary())
 
