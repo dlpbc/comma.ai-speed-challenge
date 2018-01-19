@@ -8,8 +8,6 @@ FRAME_WIDTH = 64
 NUM_RGB_CHANNELS = 3
 NUM_FLOW_CHANNELS = 2
 
-NUM_OUTPUT = 1
-
 # configs
 batch_size = 16 
 
