@@ -53,7 +53,7 @@ def build_model(num_input_frames, frame_height, frame_width, num_frame_channels,
     model.add(Dense(256, activation='relu', kernel_initializer='he_normal'))
     model.add(Dropout(0.5))
 
-    model.add(Dense(NUM_OUTPUT))
+    model.add(Dense(1))
 
     return model
  
