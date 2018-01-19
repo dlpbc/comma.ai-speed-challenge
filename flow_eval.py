@@ -31,8 +31,8 @@ def main(args):
     
 
     # Build model
-    build_model(NUM_FRAMES_PER_EXAMPLE, FRAME_HEIGHT, FRAME_WIDTH, NUM_FLOW_CHANNELS, 
-                base_model_weights=None, freeze_base=False)
+    model = build_model(NUM_FRAMES_PER_EXAMPLE, FRAME_HEIGHT, FRAME_WIDTH, NUM_FLOW_CHANNELS, 
+                        base_model_weights=None, freeze_base=False)
 
     # load saved model weights
     model.load_weights(args.weights_path)
