@@ -17,13 +17,13 @@ TOTAL_NUM_VAL_SPLIT_EXAMPLES = get_total_num_examples('data/rgb_train_val_split/
 
 def main(args):
     # train and validation generator 
-    train_data_generator = video_data_generator('data/rgb_train_val_split/train_batches/',
+    train_data_generator = video_data_generator('data/rgb_train_val_split/train_data/',
                                                 batch_size=batch_size,
                                                 shuffle=False,
                                                 center_crop=True,
                                                 two_channels_frame=False)
 
-    val_data_generator = video_data_generator('data/rgb_train_val_split/validation_batches/',
+    val_data_generator = video_data_generator('data/rgb_train_val_split/validation_data/',
                                               batch_size=batch_size,
                                               shuffle=False,
                                               center_crop=True,
