@@ -47,7 +47,7 @@ def main(args):
     val_steps = TOTAL_NUM_VAL_SPLIT_EXAMPLES // batch_size
 
     # evaluate model
-    if args.eval_type == 'both' or args.eval_type == 'validation':
+    if args.data_type == 'both' or args.data_type == 'validation':
         print('\ngenerating predictions for validation data')
         cache_preds = []
         cache_y_vals = []
@@ -73,7 +73,7 @@ def main(args):
             for i in np.arange(len(cache_preds)):
                 f.write('prediction: %f, actual: %f\n' % (cache_preds[i], cache_y_vals[i]))
 
-    if args.eval_type == 'both' or args.eval_type == 'train':
+    if args.data_type == 'both' or args.data_type == 'train':
         print('\ngenerating predictions for training data')
         cache_preds = []
         cache_y_train = []
@@ -107,7 +107,7 @@ if __name__ == '__main__':
     parser.add_argument('weights_path',
                         help='Path to the trained weights of the model',
                         type=str)
-    parser.add_argument('-t', '--eval-type',
+    parser.add_argument('-t', '--data-type',
                         help='Evaluate on training data or validation data', 
                         type=str,
                         choices=['train', 'validation', 'both'],
